@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieHub Admin</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons (để giống ảnh hơn) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-logo">
+        <img src="images/Logo.png" alt="MovieHub Logo" class="sidebar-logo-img">
+      </div>
+
+      <div class="sidebar-sep"></div>
+
+      <div class="sidebar-title">MENU</div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="sidebar-link" href="movie_management.html">
+          <i class="bi bi-film"></i>
+          <span>Quản lý phim</span>
+        </a>
+
+        <a class="sidebar-link" href="episode_management.html">
+          <i class="bi bi-play-btn"></i>
+          <span>Quản lý tập phim</span>
+        </a>
+
+        <a class="sidebar-link" href="schedule_management.html">
+          <i class="bi bi-calendar-event"></i>
+          <span>Quản lý lịch chiếu</span>
+        </a>
+
+        <a class="sidebar-link" href="genre_management.html">
+          <i class="bi bi-tags"></i>
+          <span>Quản lý thể loại</span>
+        </a>
+
+        <a class="sidebar-link" href="actor_management.html">
+          <i class="bi bi-people"></i>
+          <span>Quản lý diễn viên</span>
+        </a>
+
+        <a class="sidebar-link" href="director_management.html">
+          <i class="bi bi-person-video3"></i>
+          <span>Quản lý đạo diễn</span>
+        </a>
+
+        <a class="sidebar-link" href="user_management.html">
+          <i class="bi bi-person-badge"></i>
+          <span>Quản lý tài khoản</span>
+        </a>
+
+        <a class="sidebar-link" href="user_statistics.html">
+          <i class="bi bi-graph-up"></i>
+          <span>Thống kê Người dùng </span>
+        </a>
+
+        <a class="sidebar-link" href="engagement_analytics.html">
+          <i class="bi bi-stars"></i>
+          <span>Thống kê Lượt xem &amp; tương tác</span>
+        </a>
+
+        <a class="sidebar-link" href="search_trends.html">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span>Thống kê Xu hướng Tìm kiếm</span>
+        </a>
+
+        <a class="sidebar-link" href="top_genres.html">
+          <i class="bi bi-heart"></i>
+          <span>Thống kê Thể loại được yêu thích nhất</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-sep mt-3"></div>
+
+      <!-- USER BOX -->
+      <div class="sidebar-user">
+        <div class="user-left">
+          <div class="user-avatar">
+            <i class="bi bi-person"></i>
+          </div>
+          <div class="user-meta">
+            <div class="user-name">Quản lý</div>
+            <div class="user-role">Quản trị viên</div>
+          </div>
+        </div>
+
+        <button class="btn user-logout" type="button" title="Đăng xuất">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+    <!-- MAIN -->
+  <main class="main">
+    <div class="container-fluid py-4">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h3 class="mb-0">Dashboard</h3>
+        <div class="d-flex gap-2">
+          <select class="form-select form-select-sm w-auto" id="dashboardRange">
+            <option value="7">7 ngày</option>
+            <option value="14">14 ngày</option>
+            <option value="30" selected>30 ngày</option>
+          </select>
+
+          <button class="btn btn-soft-success btn-sm" id="btnDashboardRefresh">
+            <i class="bi bi-arrow-clockwise me-1"></i> Làm mới
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 CHARTS -->
+      <div class="row g-3">
+        <!-- 1) User Statistics (Line) -->
+        <div class="col-12 col-xl-6">
+          <div class="card chart-card">
+            <div class="card-header fw-semibold d-flex align-items-center justify-content-between">
+              <span>Thống kê Người dùng</span>
+            </div>
+            <div class="card-body">
+              <div class="chart-box">
+                <canvas id="dashUserChart" height="120"></canvas>
+              </div>
+
+              <div class="d-flex gap-2 flex-wrap mt-3">
+                <select class="form-select form-select-sm w-auto" id="dashUserMetric">
+                  <option value="new" selected>Người dùng mới</option>
+                </select>
+
+                <div class="input-group input-group-sm dash-filter">
+                  <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                  <input class="form-control" id="dashUserFilter" placeholder="Tìm kiếm..." />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) Engagement Analytics (Line) -->
+        <div class="col-12 col-xl-6">
+          <div class="card chart-card">
+            <div class="card-header fw-semibold d-flex align-items-center justify-content-between">
+              <span>Lượt xem &amp; Tương tác</span>
+            </div>
+            <div class="card-body">
+              <div class="chart-box">
+                <canvas id="dashEngagementChart" height="120"></canvas>
+              </div>
+
+              <div class="d-flex gap-2 flex-wrap mt-3">
+                <select class="form-select form-select-sm w-auto" id="dashEngageMetric">
+                  <option value="views" selected>Lượt xem</option>
+                  <option value="likes">Lượt thích</option>
+                  <option value="comments">Lượt bình luận</option>
+                  <option value="ratings">Lượt đánh giá</option>
+                </select>
+
+                <div class="input-group input-group-sm dash-filter">
+                  <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                  <input class="form-control" id="dashEngageFilter" placeholder="Tìm kiếm..." />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3) Search Trends (Bar) -->
+        <div class="col-12 col-xl-6">
+          <div class="card chart-card">
+            <div class="card-header fw-semibold d-flex align-items-center justify-content-between">
+              <span>Xu hướng Tìm kiếm</span>
+            </div>
+            <div class="card-body">
+              <div class="chart-box">
+                <canvas id="dashSearchTrendsChart" height="120"></canvas>
+              </div>
+
+              <div class="d-flex gap-2 flex-wrap mt-3">
+                <select class="form-select form-select-sm w-auto" id="dashTrendGroupBy">
+                  <option value="keyword" selected>Top keyword</option>
+                  <option value="genre">Theo thể loại</option>
+                </select>
+
+                <div class="input-group input-group-sm dash-filter">
+                  <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                  <input class="form-control" id="dashTrendFilter" placeholder="Tìm kiếm..." />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Top Genres (Bar) -->
+        <div class="col-12 col-xl-6">
+          <div class="card chart-card">
+            <div class="card-header fw-semibold d-flex align-items-center justify-content-between">
+              <span>Thể loại được yêu thích nhất</span>
+            </div>
+            <div class="card-body">
+              <div class="chart-box">
+                <canvas id="dashTopGenresChart" height="120"></canvas>
+              </div>
+
+              <div class="d-flex gap-2 flex-wrap mt-3">
+                <select class="form-select form-select-sm w-auto" id="dashGenreMetric">
+                  <option value="watch">Lượt xem</option>
+                  <option value="search">Lượt tìm kiếm</option>
+                </select>
+
+                <select class="form-select form-select-sm w-auto" id="dashTopN">
+                  <option value="5">Top 5</option>
+                  <option value="10" selected>Top 10</option>
+                  <option value="15">Top 15</option>
+                </select>
+
+                <div class="input-group input-group-sm dash-filter">
+                  <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                  <input class="form-control" id="dashGenreFilter" placeholder="Tìm kiếm..." />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

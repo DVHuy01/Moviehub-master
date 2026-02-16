@@ -1,0 +1,714 @@
+/* =========================================
+   MOVIE DETAILS PAGE STYLES (THEME VÀNG)
+   Cập nhật theo yêu cầu: Đồng bộ màu vàng MovieHub
+   ========================================= */
+
+:root {
+  /* ✅ ĐỔI: Màu xanh -> Màu vàng Citrine (#e4d804) */
+  --accent-yellow: #e4d804; 
+  --bg-dark-overlay: rgba(0, 0, 0, 0.8);
+  --text-gray: #a0a0a0;
+  --border-color: #333;
+}
+
+/* Reset lại padding body vì trang này có banner full screen */
+body {
+  padding-top: 0 !important; 
+  background-color: #0a0a0a;
+}
+
+/* Header nằm đè lên banner */
+.header.hh3d {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border-bottom: none;
+}
+.header.hh3d.active {
+    background-color: #0f0f0f; 
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* --------------------------------------
+   1. HERO BANNER SECTION
+   -------------------------------------- */
+.movie-banner {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 60px;
+  margin-top: 0px;
+  padding-top: 160px;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.5) 50%,
+    #141414 100%
+  );
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: auto;
+}
+
+/* Badge HD & Năm */
+.meta-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.badge-hd {
+  /* ✅ ĐỔI: Nền vàng, chữ đen cho dễ đọc */
+  background-color: var(--accent-yellow);
+  color: #000;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.year {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Tiêu đề */
+.movie-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.movie-subtitle {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+/* ✅ ĐỔI: Chữ "Đang chiếu tập..." thành màu vàng */
+.episode-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-yellow);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.movie-meta-row.flex-align {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 0; /* Khoảng cách sẽ do divider kiểm soát */
+    margin-bottom: 10px;
+}
+
+/* Fix lỗi dấu gạch đứng bị nhảy dòng hoặc quá dài */
+.divider-line {
+    display: inline-block;
+    margin: 0 15px; /* Khoảng cách 15px sang 2 bên */
+    color: #555;
+    font-weight: 300;
+    line-height: 1; /* Đảm bảo không bị cao bất thường */
+}
+/* Meta info */
+.movie-meta-row {
+  align-items: center; 
+  gap: 0;
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 8px;
+}
+.movie-meta-row strong.highlight { color: #fff; font-weight: 600;}
+.movie-meta-row .divider { margin: 0 10px; color: #555; font-weight: 300;}
+
+/* Buttons Action */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* ✅ ĐỔI: Nút CHIẾU PHÁT giống style nút Đăng nhập */
+.btn-play {
+  /* Nền trong suốt, viền vàng 2px */
+  background-color: transparent;
+  border: 2px solid var(--accent-yellow);
+  color: #fff; /* Chữ trắng */
+  
+  border-radius: 50px; /* Bo tròn giống nút đăng nhập header */
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover: Nền vàng, chữ đen */
+.btn-play:hover {
+  background-color: var(--accent-yellow);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(228, 216, 4, 0.4);
+}
+
+.btn-like {
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  border-radius: 50px; /* Bo tròn cho đồng bộ */
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-like:hover {
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
+  background-color: rgba(255,255,255,0.05);
+}
+
+/* --------------------------------------
+   2. CONTENT BODY
+   -------------------------------------- */
+.movie-body {
+  padding-bottom: 80px;
+  background-color: #141414;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* --- SIDEBAR TRÁI --- */
+.sidebar-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ✅ ĐỔI: Dấu gạch bên trái chữ NỘI DUNG thành màu vàng */
+.info-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  border-left: 3px solid var(--accent-yellow);
+  padding-left: 10px;
+  line-height: 1;
+}
+
+.info-text {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.info-label {
+  font-size: 13px;
+  color: #777;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.info-value { font-size: 15px; color: #fff; font-weight: 500; }
+.text-gray { color: #888; font-style: italic; }
+
+.tags-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag-item {
+  display: inline-block;
+  background: #1f1f1f;
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+
+.tag-item:hover {
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
+}
+
+.meta-list { list-style: none; padding: 0; }
+.meta-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 14px;
+}
+.meta-list li span { color: #888; }
+.meta-list li .val { color: #fff; font-weight: 500; text-align: right; }
+
+/* --- MAIN CONTENT PHẢI --- */
+.main-content { padding-top: 10px; }
+
+/* Tabs */
+.content-tabs {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid #222;
+  margin-bottom: 30px;
+}
+
+.tab-item {
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+/* ✅ ĐỔI: Chữ và gạch chân PHỤ ĐỀ thành màu vàng */
+.tab-item.active {
+  color: var(--accent-yellow);
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-yellow);
+}
+
+.tab-item:hover { color: #fff; }
+
+/* Episode Section */
+.episode-section {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-label { font-size: 14px; color: #999; margin-bottom: 15px; }
+
+
+/* Grid tập phim */
+.episode-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.ep-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1a1a1a;
+  color: #ccc;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid #333;
+}
+
+.ep-btn:hover {
+  background: #252525;
+  color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+}
+
+/* ✅ ĐỔI: Tập đang chọn (Active) -> Viền vàng, Chữ vàng, Nền tối */
+.ep-btn.active {
+  background: #222;
+  color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+}
+
+/* Comment Section */
+.comment-section {
+    border-top: 1px solid #222;
+    padding-top: 30px;
+}
+
+/* ✅ ĐỔI: Tiêu đề Bình luận màu vàng */
+.comment-title {
+    font-size: 20px;
+    color: var(--accent-yellow);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.comment-title .count { font-size: 16px; color: #666; font-weight: 400; }
+
+.comment-box {
+    background: #0e0e0e;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+}
+
+.comment-box p { color: #888; margin-bottom: 20px; }
+
+/* ✅ ĐỔI: Nút Đăng nhập ngay giống nút Login Header */
+.btn-login-comment {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    border: 1px solid var(--accent-yellow);
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-login-comment:hover {
+    background: var(--accent-yellow);
+    color: #000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .grid-layout { grid-template-columns: 1fr; }
+    .movie-banner { min-height: 500px; }
+    .movie-title { font-size: 32px; }
+    .action-buttons { flex-wrap: wrap; }
+    .btn-play, .btn-like { width: 100%; justify-content: center; }
+}
+/* =========================================
+   GO TO TOP BUTTON
+   ========================================= */
+.go-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-yellow);
+  color: #000; /* Màu icon đen trên nền vàng */
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.go-top ion-icon { font-size: 24px; }
+
+.go-top.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-10px);
+}
+
+.go-top:hover {
+  background: #fff; /* Hover chuyển màu trắng */
+  color: #000;
+}
+
+/* =========================================
+   FOOTER STYLES (Đồng bộ từ index)
+   ========================================= */
+
+.footer-top {
+  /* Ảnh nền footer, đảm bảo đường dẫn ảnh đúng */
+  background: url("../images/footer-bg.jpg") no-repeat center center;
+  background-size: cover;
+  padding-block: 80px 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 60px; /* Tạo khoảng cách với nội dung bên trên */
+}
+
+.footer-brand-wrapper,
+.quicklink-wrapper,
+.footer-bottom .container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand-wrapper .logo img {
+  height: 40px;
+  width: auto;
+}
+
+.footer-list,
+.quicklink-list,
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-link:hover,
+.quicklink-link:hover,
+.social-link:hover {
+  color: var(--primary-yellow);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+  width: 100%;
+}
+
+.quicklink-link {
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-list { gap: 10px; }
+
+.social-link {
+  background: #1a1a1a;
+  color: #aaa;
+  font-size: 16px;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  border: 1px solid #333;
+}
+
+.social-link:hover {
+  background: var(--primary-yellow);
+  color: #000;
+  border-color: var(--primary-yellow);
+}
+
+.footer-bottom {
+  background: #0a0a0a;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.copyright {
+  color: #888;
+  font-size: 13px;
+  margin: 0;
+}
+
+.copyright a {
+  color: var(--primary-yellow);
+  text-decoration: none;
+}
+
+.footer-bottom-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive cho Footer */
+@media (max-width: 768px) {
+  .footer-brand-wrapper,
+  .quicklink-wrapper,
+  .footer-bottom .container-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .footer-list, .quicklink-list, .social-list {
+    justify-content: center;
+  }
+}
+
+.hh3d-dropdown:hover .hh3d-dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 2. Chỉ hiện khi có class .active */
+.hh3d-dropdown.active .hh3d-dropdown-menu {
+  display: flex; /* Menu thường */
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+}
+
+/* 3. Style cho Grid 3 cột (Thể loại) */
+.hh3d-dropdown-menu.genre-grid {
+  width: 600px;
+  display: none; /* Mặc định ẩn */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #111;
+  border: 1px solid #333;
+  left: -150px;
+}
+
+/* Hiện Grid khi Active */
+.hh3d-dropdown.active .hh3d-dropdown-menu.genre-grid {
+  display: grid;
+}
+
+/* Scrollbar đẹp */
+.hh3d-dropdown-menu.genre-grid::-webkit-scrollbar { width: 6px; }
+.hh3d-dropdown-menu.genre-grid::-webkit-scrollbar-track { background: #222; }
+.hh3d-dropdown-menu.genre-grid::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+
+/* Responsive Mobile */
+@media (max-width: 900px) {
+  .hh3d-dropdown-menu.genre-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    left: 0;
+    max-height: 300px;
+  }
+}
+
+.hh3d-dropdown-menu.country-grid {
+  width: 600px;
+  display: none; /* Mặc định ẩn */
+  grid-template-columns: repeat(3, 1fr); /* Chia 3 cột */
+  gap: 15px 10px;
+  max-height: 400px;
+  overflow-y: auto; /* Thanh cuộn dọc */
+  padding: 20px;
+  background-color: #111;
+  border: 1px solid #333;
+  left: -200px; /* Căn chỉnh vị trí cho phù hợp */
+}
+
+/* 2. Hiện Grid khi Active (Kích hoạt bằng JS) */
+.hh3d-dropdown.active .hh3d-dropdown-menu.country-grid {
+  display: grid;
+}
+
+/* 3. Tùy chỉnh thanh cuộn cho đẹp */
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar { width: 6px; }
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar-track { background: #222; }
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar-thumb:hover { background: var(--primary-yellow); }
+
+/* Responsive Mobile: Về 1 cột */
+@media (max-width: 900px) {
+  .hh3d-dropdown-menu.country-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    left: 0;
+    max-height: 300px;
+  }
+}
+
+/* 1. Style cho Grid 5 cột (Năm) */
+.hh3d-dropdown-menu.year-grid {
+  width: 550px; /* Độ rộng vừa phải cho 5 cột số */
+  display: none; /* Mặc định ẩn */
+  
+  grid-template-columns: repeat(5, 1fr); /* ✅ Chia 5 cột như trong hình */
+  gap: 15px 10px;
+  
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #111;
+  border: 1px solid #333;
+  
+  /* Căn chỉnh vị trí: Đẩy sang trái nhiều hơn vì menu Năm nằm ở giữa */
+  left: -250px; 
+}
+
+/* 2. Hiện Grid khi Active */
+.hh3d-dropdown.active .hh3d-dropdown-menu.year-grid {
+  display: grid;
+}
+
+/* 3. Căn giữa chữ số năm cho đẹp */
+.hh3d-dropdown-menu.year-grid a {
+  text-align: center;
+  padding: 10px 5px; /* Giảm padding ngang để vừa cột */
+}
+
+/* 4. Scrollbar (Giống các menu khác) */
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar { width: 6px; }
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar-track { background: #222; }
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar-thumb:hover { background: var(--primary-yellow); }
+
+/* Responsive Mobile */
+@media (max-width: 900px) {
+  .hh3d-dropdown-menu.year-grid {
+    width: 100%;
+    grid-template-columns: 1fr; /* Về 1 cột trên điện thoại */
+    left: 0;
+    max-height: 300px;
+    text-align: left;
+  }
+  .hh3d-dropdown-menu.year-grid a { text-align: left; padding: 10px 20px; }
+}

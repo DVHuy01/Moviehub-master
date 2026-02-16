@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pháp Sư Tiễn Táng (Phần 2) - MovieHub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/movie-details.css" />
+</head>
+
+<body id="top">
+
+  <header class="header hh3d" data-header>
+    <div class="hh3d-top">
+      <div class="container-header">
+        <div class="hh3d-top-inner">
+          <a href="index.html" class="hh3d-logo" aria-label="MovieHub">
+            <img src="./assets/images/Logo.png" alt="MovieHub" />
+          </a>
+          <div class="hh3d-search">
+            <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            <input type="text" placeholder="Tìm kiếm phim..." />
+          </div>
+          <div class="hh3d-actions">
+            <a href="history.html" class="btn-header"><ion-icon name="time-outline"></ion-icon><span>Lịch sử</span></a>
+            <a href="login.html" class="btn-header"><ion-icon name="log-in-outline"></ion-icon><span>Đăng nhập</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hh3d-nav">
+        <div class="container-header">
+          <ul class="hh3d-menu">
+            <li><a href="index.html" class="hh3d-link"><ion-icon name="home-outline"></ion-icon><span>Trang chủ</span></a></li>
+            <li class="hh3d-dropdown">
+              <a href="#" class="hh3d-link hh3d-toggle"><ion-icon name="grid-outline"></ion-icon><span>Thể loại</span><ion-icon name="chevron-down-outline" class="hh3d-caret"></ion-icon></a>
+              <div class="hh3d-dropdown-menu genre-grid">
+                <a href="genre.html?cat=am-nhac">Âm Nhạc</a>
+                <a href="genre.html?cat=bi-an">Bí Ẩn</a>
+                <a href="genre.html?cat=chien-tranh">Chiến Tranh</a>
+                
+              </div>
+            </li>
+            
+            <li class="hh3d-dropdown">
+              <a href="#" class="hh3d-link hh3d-toggle"><ion-icon name="flag-outline"></ion-icon><span>Quốc gia</span><ion-icon name="chevron-down-outline" class="hh3d-caret"></ion-icon></a>
+              <div class="hh3d-dropdown-menu country-grid">
+                <a href="country.html?country=a-rap-thong-nhat">Ả Rập Thống Nhất</a>
+                <a href="country.html?country=a-rap-xe-ut">Ả Rập Xê Út</a>
+                <a href="country.html?country=ai-cap">Ai Cập</a>
+                
+              </div>
+            </li>
+
+            <li class="hh3d-dropdown">
+              <a href="#" class="hh3d-link hh3d-toggle"><ion-icon name="calendar-number-outline"></ion-icon><span>Năm</span><ion-icon name="chevron-down-outline" class="hh3d-caret"></ion-icon></a>
+              <div class="hh3d-dropdown-menu year-grid">
+                <a href="year.html?year=2026">2026</a>
+                <a href="year.html?year=2025">2025</a>
+                <a href="year.html?year=2024">2024</a>
+                
+              </div>
+            </li>
+            
+            <li><a href="drama.html" class="hh3d-link"><ion-icon name="desktop-outline"></ion-icon><span>Phim bộ</span></a></li>
+            <li><a href="single-movie.html" class="hh3d-link"><ion-icon name="film-outline"></ion-icon><span>Phim lẻ</span></a></li>
+            <li><a href="actor.html" class="hh3d-link"><ion-icon name="people-outline"></ion-icon><span>Diễn viên</span></a></li>
+            <li><a href="schedule.html" class="hh3d-link"><ion-icon name="time-outline"></ion-icon><span>Lịch chiếu</span></a></li>
+          </ul>
+        </div>
+      </div>
+  </header>
+
+  <main>
+    <section class="movie-banner" style="background-image: url('./assets/images/frieren-banner.jpg');">
+      <div class="banner-overlay"></div>
+      
+      <div class="container banner-content">
+        <div class="meta-tags">
+          <span class="badge-hd">HD</span>
+          <span class="year">2026</span>
+        </div>
+
+        <h1 class="movie-title">Pháp Sư Tiễn Táng (Phần 2)</h1>
+        <p class="movie-subtitle">Sousou no Frieren 2nd Season, Frieren: Beyond Journey's End Season 2, Frieren at the Funeral Season 2</p>
+
+        <p class="episode-status">
+          <ion-icon name="play-outline"></ion-icon> Đang chiếu tập 3 / 10
+        </p>
+
+        <div class="movie-meta-row">
+            <span>Đạo diễn: <strong class="highlight">Kitagawa Tomoya</strong></span>
+            <span class="divider-line">|</span>
+            <span>Thời lượng: <strong class="highlight">23 phút/tập</strong></span>
+        </div>
+
+        <div class="movie-meta-row">
+            <span>Diễn viên: N/A</span>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn-play">
+            <ion-icon name="play"></ion-icon>
+            <span>CHIẾU PHÁT</span>
+          </button>
+          
+          <button class="btn-like">
+            <ion-icon name="heart-outline"></ion-icon>
+            <span>Thích</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="movie-body">
+      <div class="container grid-layout">
+        
+        <aside class="sidebar-info">
+            <div class="info-block">
+                <h3 class="info-heading">| NỘI DUNG</h3>
+                <p class="info-text">
+                    Mùa 2 của Sousou no Frieren. Tiếp tục cuộc hành trình của Frieren hướng về phía Bắc (Ende) để gặp lại Himmel.
+                </p>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-label">ĐẠO DIỄN</h3>
+                <p class="info-value">Kitagawa Tomoya</p>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-label">DIỄN VIÊN</h3>
+                <p class="info-value text-gray">Đang cập nhật...</p>
+            </div>
+
+            <div class="info-block">
+                <h3 class="info-label">THỂ LOẠI</h3>
+                <div class="tags-list">
+                    <a href="#" class="tag-item">CHÍNH KỊCH</a>
+                    <a href="#" class="tag-item">GIẢ TƯỞNG</a>
+                    <a href="#" class="tag-item">HOẠT HÌNH</a>
+                    <a href="#" class="tag-item">PHIÊU LƯU</a>
+                </div>
+            </div>
+
+            <div class="info-block mt-4">
+                <h3 class="info-label">THÔNG TIN THÊM</h3>
+                <ul class="meta-list">
+                    <li><span>Quốc gia:</span> <span class="val">Nhật Bản</span></li>
+                    <li><span>Năm:</span> <span class="val">2026</span></li>
+                    <li><span>Chất lượng:</span> <span class="val">HD</span></li>
+                    <li><span>Ngôn ngữ:</span> <span class="val">Vietsub</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            
+            <div class="content-tabs">
+                <div class="tab-item active"><ion-icon name="albums-outline"></ion-icon> PHỤ ĐỀ</div>
+                <div class="tab-item">Đề xuất</div>
+                <div class="tab-item">Diễn viên</div>
+            </div>
+
+            <div class="episode-section">
+                <p class="section-label">Danh sách tập (3)</p>
+
+                <div class="episode-grid">
+                    <a href="#" class="ep-btn">
+                        <ion-icon name="play-outline"></ion-icon> Tập 1
+                    </a>
+                    <a href="#" class="ep-btn">
+                        <ion-icon name="play-outline"></ion-icon> Tập 2
+                    </a>
+                    <a href="#" class="ep-btn active">
+                        <ion-icon name="play-outline"></ion-icon> Tập 3
+                    </a>
+                </div>
+            </div>
+
+            <div class="comment-section">
+                <h3 class="comment-title">
+                    <ion-icon name="chatbox-ellipses-outline"></ion-icon> Bình luận <span class="count">(0)</span>
+                </h3>
+                
+                <div class="comment-box">
+                    <p>Đăng nhập để tham gia thảo luận cùng cộng đồng</p>
+                    <a href="login.html" class="btn-login-comment">Đăng nhập ngay</a>
+                </div>
+            </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container-header"> <div class="footer-brand-wrapper">
+          <a href="./index.html" class="logo">
+            <img src="./assets/images/Logo.png" alt="Logo MovieHub">
+          </a>
+
+          <ul class="footer-list">
+            <li><a href="./index.html" class="footer-link">Trang chủ</a></li>
+            <li><a href="#" class="footer-link">Về chúng tôi</a></li>
+            <li><a href="#" class="footer-link">Liên hệ</a></li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quicklink-wrapper">
+          <ul class="quicklink-list">
+            <li><a href="#" class="quicklink-link">Câu hỏi thường gặp</a></li>
+            <li><a href="#" class="quicklink-link">Trung tâm trợ giúp</a></li>
+            <li><a href="#" class="quicklink-link">Điều khoản sử dụng</a></li>
+            <li><a href="#" class="quicklink-link">Chính sách bảo mật</a></li>
+          </ul>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-link" aria-label="YouTube">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container-header"> <p class="copyright">
+          &copy; 2026 <a href="#">MovieHub</a>. All rights reserved.
+        </p>
+
+        <img src="./assets/images/footer-bottom-img.png" alt="Logo các công ty ngân hàng trực tuyến" class="footer-bottom-img" />
+      </div>
+    </div>
+  </footer>
+  
+  <a href="#top" class="go-top" data-go-top aria-label="Lên đầu trang">
+    <ion-icon name="chevron-up"></ion-icon>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>

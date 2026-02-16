@@ -1,0 +1,484 @@
+/* =========================================
+   ACTOR DETAILS STYLES (THEME VÀNG)
+   Updated: Added Birth Info, Fixed Alignment
+   ========================================= */
+
+:root {
+  --primary-yellow: #e4d804;
+  --bg-dark: #0f0f0f;
+  --text-white: #ffffff;
+  --text-gray: #a0a0a0;
+  --border-color: #333;
+}
+
+body {
+    padding-top: 180px !important;
+    background-color: #141414;
+    color: var(--text-white);
+}
+
+.actor-details-main {
+    padding-bottom: 80px;
+}
+
+/* --- Layout Grid --- */
+.actor-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-inline: 30px;
+}
+
+/* --- Sidebar Trái --- */
+.actor-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-placeholder {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+}
+
+.profile-placeholder ion-icon {
+    font-size: 80px;
+    color: #333;
+}
+
+/* Danh sách thông tin sidebar */
+.sidebar-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các mục Giới tính, Ngày sinh... */
+    margin-top: 10px;
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+    text-transform: uppercase;
+}
+
+.info-label ion-icon {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.info-value {
+    font-size: 15px;
+    color: #ddd;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* --- Content Phải --- */
+.actor-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Header */
+.actor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.actor-name {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.actor-subname {
+    font-size: 16px;
+    color: #888;
+    font-weight: 400;
+}
+
+/* Nút Yêu thích */
+.btn-favorite {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-favorite:hover {
+    border-color: var(--primary-yellow);
+    color: var(--primary-yellow);
+    background-color: rgba(228, 216, 4, 0.05);
+}
+
+/* Mục Phim tham gia */
+.movies-participated {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* ✅ Đảm bảo nội dung canh trái */
+    align-items: flex-start; 
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    border-left: 4px solid var(--primary-yellow);
+    padding-left: 12px;
+    line-height: 1.2;
+    
+    /* ✅ Cố định canh trái */
+    text-align: left;
+    width: 100%; 
+}
+
+.empty-state {
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+    text-align: left; /* Canh trái text thông báo */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .actor-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .profile-placeholder {
+        width: 180px;
+        margin: 0 auto;
+    }
+    
+    .sidebar-info-list {
+        /* Trên mobile có thể cho thông tin nằm ngang hoặc giữa */
+        padding: 0 20px;
+    }
+
+    .actor-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+/* =========================================
+   GO TO TOP BUTTON
+   ========================================= */
+.go-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-yellow);
+  color: #000; /* Màu icon đen trên nền vàng */
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.go-top ion-icon { font-size: 24px; }
+
+.go-top.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-10px);
+}
+
+.go-top:hover {
+  background: #fff; /* Hover chuyển màu trắng */
+  color: #000;
+}
+
+/* =========================================
+   FOOTER STYLES (Đồng bộ từ index)
+   ========================================= */
+
+.footer-top {
+  /* Ảnh nền footer, đảm bảo đường dẫn ảnh đúng */
+  background: url("../images/footer-bg.jpg") no-repeat center center;
+  background-size: cover;
+  padding-block: 80px 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 60px; /* Tạo khoảng cách với nội dung bên trên */
+}
+
+.footer-brand-wrapper,
+.quicklink-wrapper,
+.footer-bottom .container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand-wrapper .logo img {
+  height: 40px;
+  width: auto;
+}
+
+.footer-list,
+.quicklink-list,
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-link:hover,
+.quicklink-link:hover,
+.social-link:hover {
+  color: var(--primary-yellow);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+  width: 100%;
+}
+
+.quicklink-link {
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-list { gap: 10px; }
+
+.social-link {
+  background: #1a1a1a;
+  color: #aaa;
+  font-size: 16px;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  border: 1px solid #333;
+}
+
+.social-link:hover {
+  background: var(--primary-yellow);
+  color: #000;
+  border-color: var(--primary-yellow);
+}
+
+.footer-bottom {
+  background: #0a0a0a;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.copyright {
+  color: #888;
+  font-size: 13px;
+  margin: 0;
+}
+
+.copyright a {
+  color: var(--primary-yellow);
+  text-decoration: none;
+}
+
+.footer-bottom-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive cho Footer */
+@media (max-width: 768px) {
+  .footer-brand-wrapper,
+  .quicklink-wrapper,
+  .footer-bottom .container-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .footer-list, .quicklink-list, .social-list {
+    justify-content: center;
+  }
+}
+
+.hh3d-dropdown:hover .hh3d-dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 2. Chỉ hiện khi có class .active */
+.hh3d-dropdown.active .hh3d-dropdown-menu {
+  display: flex; /* Menu thường */
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+}
+
+/* 3. Style cho Grid 3 cột (Thể loại) */
+.hh3d-dropdown-menu.genre-grid {
+  width: 600px;
+  display: none; /* Mặc định ẩn */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #111;
+  border: 1px solid #333;
+  left: -150px;
+}
+
+/* Hiện Grid khi Active */
+.hh3d-dropdown.active .hh3d-dropdown-menu.genre-grid {
+  display: grid;
+}
+
+/* Scrollbar đẹp */
+.hh3d-dropdown-menu.genre-grid::-webkit-scrollbar { width: 6px; }
+.hh3d-dropdown-menu.genre-grid::-webkit-scrollbar-track { background: #222; }
+.hh3d-dropdown-menu.genre-grid::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+
+/* Responsive Mobile */
+@media (max-width: 900px) {
+  .hh3d-dropdown-menu.genre-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    left: 0;
+    max-height: 300px;
+  }
+}
+
+.hh3d-dropdown-menu.country-grid {
+  width: 600px;
+  display: none; /* Mặc định ẩn */
+  grid-template-columns: repeat(3, 1fr); /* Chia 3 cột */
+  gap: 15px 10px;
+  max-height: 400px;
+  overflow-y: auto; /* Thanh cuộn dọc */
+  padding: 20px;
+  background-color: #111;
+  border: 1px solid #333;
+  left: -200px; /* Căn chỉnh vị trí cho phù hợp */
+}
+
+/* 2. Hiện Grid khi Active (Kích hoạt bằng JS) */
+.hh3d-dropdown.active .hh3d-dropdown-menu.country-grid {
+  display: grid;
+}
+
+/* 3. Tùy chỉnh thanh cuộn cho đẹp */
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar { width: 6px; }
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar-track { background: #222; }
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+.hh3d-dropdown-menu.country-grid::-webkit-scrollbar-thumb:hover { background: var(--primary-yellow); }
+
+/* Responsive Mobile: Về 1 cột */
+@media (max-width: 900px) {
+  .hh3d-dropdown-menu.country-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    left: 0;
+    max-height: 300px;
+  }
+}
+
+/* 1. Style cho Grid 5 cột (Năm) */
+.hh3d-dropdown-menu.year-grid {
+  width: 550px; /* Độ rộng vừa phải cho 5 cột số */
+  display: none; /* Mặc định ẩn */
+  
+  grid-template-columns: repeat(5, 1fr); /* ✅ Chia 5 cột như trong hình */
+  gap: 15px 10px;
+  
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #111;
+  border: 1px solid #333;
+  
+  /* Căn chỉnh vị trí: Đẩy sang trái nhiều hơn vì menu Năm nằm ở giữa */
+  left: -250px; 
+}
+
+/* 2. Hiện Grid khi Active */
+.hh3d-dropdown.active .hh3d-dropdown-menu.year-grid {
+  display: grid;
+}
+
+/* 3. Căn giữa chữ số năm cho đẹp */
+.hh3d-dropdown-menu.year-grid a {
+  text-align: center;
+  padding: 10px 5px; /* Giảm padding ngang để vừa cột */
+}
+
+/* 4. Scrollbar (Giống các menu khác) */
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar { width: 6px; }
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar-track { background: #222; }
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+.hh3d-dropdown-menu.year-grid::-webkit-scrollbar-thumb:hover { background: var(--primary-yellow); }
+
+/* Responsive Mobile */
+@media (max-width: 900px) {
+  .hh3d-dropdown-menu.year-grid {
+    width: 100%;
+    grid-template-columns: 1fr; /* Về 1 cột trên điện thoại */
+    left: 0;
+    max-height: 300px;
+    text-align: left;
+  }
+  .hh3d-dropdown-menu.year-grid a { text-align: left; padding: 10px 20px; }
+}

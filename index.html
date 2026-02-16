@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieHub - Bộ sưu tập phim hay nhất</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- ✅ Ionicons giống schedule -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body id="top">
+
+  <!-- ✅ HEADER HH3D: giống schedule -->
+  <header class="header hh3d" data-header>
+    <div class="hh3d-top">
+      <div class="container-header">
+        <div class="hh3d-top-inner">
+
+          <a href="index.html" class="hh3d-logo" aria-label="MovieHub">
+            <img src="./assets/images/Logo.png" alt="MovieHub">
+          </a>
+
+          <div class="hh3d-search">
+            <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            <input type="text" placeholder="Tìm kiếm phim...">
+          </div>
+
+          <div class="hh3d-actions">
+            <a href="history.html" class="btn-header">
+              <ion-icon name="time-outline"></ion-icon>
+              <span>Lịch sử</span>
+            </a>
+            <a href="login.html" class="btn-header">
+              <ion-icon name="log-in-outline"></ion-icon>
+              <span>Đăng nhập</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hh3d-nav">
+      <div class="container-header">
+        <ul class="hh3d-menu">
+
+          <li>
+            <!-- ✅ ĐÃ SỬA: bỏ is-active để JS tự set theo URL -->
+            <a href="index.html" class="hh3d-link">
+              <ion-icon name="home-outline"></ion-icon>
+              <span>Trang chủ</span>
+            </a>
+          </li>
+
+          <li class="hh3d-dropdown">
+            <a href="#" class="hh3d-link hh3d-toggle">
+              <ion-icon name="grid-outline"></ion-icon>
+              <span>Thể loại</span>
+              <ion-icon name="chevron-down-outline" class="hh3d-caret"></ion-icon>
+            </a>
+            <div class="hh3d-dropdown-menu genre-grid">
+                <a href="genre.html?cat=am-nhac">Âm Nhạc</a>
+                <a href="genre.html?cat=bi-an">Bí Ẩn</a>
+                <a href="genre.html?cat=chien-tranh">Chiến Tranh</a>
+              </div>
+            </li>
+
+          <li class="hh3d-dropdown">
+            <a href="#" class="hh3d-link hh3d-toggle">
+              <ion-icon name="flag-outline"></ion-icon>
+              <span>Quốc gia</span>
+              <ion-icon name="chevron-down-outline" class="hh3d-caret"></ion-icon>
+            </a>
+            <div class="hh3d-dropdown-menu country-grid">
+                <a href="country.html?country=a-rap-thong-nhat">Ả Rập Thống Nhất</a>
+                <a href="country.html?country=a-rap-xe-ut">Ả Rập Xê Út</a>
+                <a href="country.html?country=ai-cap">Ai Cập</a>
+              </div>
+            </li>
+
+          <li class="hh3d-dropdown">
+            <a href="#" class="hh3d-link hh3d-toggle">
+              <ion-icon name="calendar-number-outline"></ion-icon>
+              <span>Năm</span>
+              <ion-icon name="chevron-down-outline" class="hh3d-caret"></ion-icon>
+            </a>
+            <div class="hh3d-dropdown-menu year-grid">
+                <a href="year.html?year=2026">2026</a>
+                <a href="year.html?year=2025">2025</a>
+                <a href="year.html?year=2024">2024</a>
+              </div>
+            </li>
+
+          <li>
+            <a href="drama.html" class="hh3d-link">
+              <ion-icon name="desktop-outline"></ion-icon>
+              <span>Phim bộ</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="single-movie.html" class="hh3d-link">
+              <ion-icon name="film-outline"></ion-icon>
+              <span>Phim lẻ</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="actor.html" class="hh3d-link">
+              <ion-icon name="people-outline"></ion-icon>
+              <span>Diễn viên</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="schedule.html" class="hh3d-link">
+              <ion-icon name="time-outline"></ion-icon>
+              <span>Lịch chiếu</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-subtitle">MovieHub</p>
+
+            <h1 class="h1 hero-title">
+              Không giới hạn <strong>Phim</strong>, Anime, &amp; hơn thế nữa.
+            </h1>
+
+            <button class="btn btn-primary">
+              <ion-icon name="play"></ion-icon>
+              <span>Xem ngay</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPCOMING -->
+      <section class="upcoming">
+  <div class="container">
+
+    <div class="flex-wrapper">
+        <h2 class="h2 section-title">Phim đề xuất</h2>
+
+        <a href="#" class="view-all">
+          Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon>
+        </a>
+    </div>
+
+    <div class="movie-list-wrapper">
+      
+      <ul class="movies-list has-scrollbar" id="upcoming-list">
+        
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/upcoming-1.png" alt="Chuyện Lớn Nơi Thành Phố">
+                <div class="card-badges">
+                  <span class="badge-item gray">P.Đ 40</span>
+                </div>
+              </figure>
+            </a>
+
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Chuyện Lớn Nơi Thành Phố</h3>
+                <span class="card-subtitle">The Dream Maker</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <button class="slider-btn next" onclick="scrollList('right')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+      
+    </div>
+
+  </div>
+</section>
+
+      <!-- TOP RATED -->
+      <section class="top-rated">
+  <div class="container">
+
+    <div class="flex-wrapper">
+      <h2 class="h2 section-title">Phim được đánh giá cao</h2>
+      <a href="#" class="view-all">
+        Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon>
+      </a>
+    </div>
+
+    <div class="movie-list-wrapper">
+      
+      <ul class="movies-list has-scrollbar" id="top-rated-list">
+
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-1.png" alt="Cơn Say Mùa Xuân">
+                <div class="card-badges">
+                  <span class="badge-item gray">P.Đ 9</span>
+                  <span class="badge-item green">T.M 8</span>
+                </div>
+              </figure>
+            </a>
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Cơn Say Mùa Xuân</h3>
+                <span class="card-subtitle">Spring Fever</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <button class="slider-btn" onclick="scrollList('right', 'top-rated-list')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+      
+    </div>
+
+  </div>
+</section>
+
+      <!-- TV SERIES -->
+      <section class="tv-series">
+  <div class="container">
+
+    <div class="flex-wrapper">
+      <h2 class="h2 section-title">Phim bộ hay nhất thế giới</h2>
+      <a href="#" class="view-all">
+        Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon>
+      </a>
+    </div>
+
+    <div class="movie-list-wrapper">
+      
+      <ul class="movies-list has-scrollbar" id="tv-series-list">
+
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-1.png" alt="Mê Cung Ái Tình">
+                <div class="card-badges">
+                  <span class="badge-item gray">P.Đ 14</span>
+                </div>
+              </figure>
+            </a>
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Kẻ Có Tội</h3>
+                <span class="card-subtitle">The Guilty</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <button class="slider-btn" onclick="scrollList('right', 'tv-series-list')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<section class="single-movie">
+  <div class="container">
+
+    <div class="flex-wrapper">
+      <h2 class="h2 section-title">Phim lẻ hay nhất thế giới</h2>
+      <a href="#" class="view-all">
+        Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon>
+      </a>
+    </div>
+
+    <div class="movie-list-wrapper">
+      
+      <ul class="movies-list has-scrollbar" id="single-movie-list">
+
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-1.png" alt="Thợ Săn Quái Vật">
+                <div class="card-badges">
+                  <span class="badge-item gray">P.Đ 10</span>
+                  <span class="badge-item red">Netflix</span>
+                </div>
+              </figure>
+            </a>
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Thợ Săn Quái Vật: Cơn Ác Mộng Sói</h3>
+                <span class="card-subtitle">The Witcher: Nightmare of the Wolf</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <button class="slider-btn" onclick="scrollList('right', 'single-movie-list')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+  <section class="anime-series">
+  <div class="container">
+    <div class="flex-wrapper">
+      <h2 class="h2 section-title">Anime hay nhất</h2>
+      <a href="#" class="view-all">Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon></a>
+    </div>
+    <div class="movie-list-wrapper">
+      <ul class="movies-list has-scrollbar" id="anime-list">
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-1.png" alt="One Piece">
+                <div class="card-badges">
+                  <span class="badge-item gray">Tập 1089</span>
+                </div>
+              </figure>
+            </a>
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Đảo Hải Tặc</h3>
+                <span class="card-subtitle">One Piece</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        </ul>
+      <button class="slider-btn" onclick="scrollList('right', 'anime-list')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="china-movies">
+  <div class="container">
+    <div class="flex-wrapper">
+      <h2 class="h2 section-title">Phim Trung Quốc hay nhất</h2>
+      <a href="#" class="view-all">Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon></a>
+    </div>
+    <div class="movie-list-wrapper">
+      <ul class="movies-list has-scrollbar" id="china-list">
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-2.png" alt="Dữ Phượng Hành">
+                <div class="card-badges"><span class="badge-item green">T.Minh</span></div>
+              </figure>
+            </a>
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Dữ Phượng Hành</h3>
+                <span class="card-subtitle">The Legend of Shen Li</span>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button class="slider-btn" onclick="scrollList('right', 'china-list')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="us-movies">
+  <div class="container">
+    <div class="flex-wrapper">
+      <h2 class="h2 section-title">Phim Mỹ hay nhất</h2>
+      <a href="#" class="view-all">Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon></a>
+    </div>
+    <div class="movie-list-wrapper">
+      <ul class="movies-list has-scrollbar" id="us-list">
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/movie-3.png" alt="Godzilla x Kong">
+                <div class="card-badges"><span class="badge-item red">Bom tấn</span></div>
+              </figure>
+            </a>
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Godzilla x Kong: Đế Chế Mới</h3>
+                <span class="card-subtitle">The New Empire</span>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button class="slider-btn" onclick="scrollList('right', 'us-list')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="korea-movies">
+  <div class="container">
+    <div class="flex-wrapper">
+      <h2 class="h2 section-title">Phim Hàn Quốc hay nhất</h2>
+      <a href="#" class="view-all">Xem tất cả <ion-icon name="chevron-forward-outline"></ion-icon></a>
+    </div>
+    <div class="movie-list-wrapper">
+      <ul class="movies-list has-scrollbar" id="korea-list">
+        <li>
+          <div class="movie-card">
+            <a href="./movie-details.html">
+              <figure class="card-banner">
+                <img src="./assets/images/series-3.png" alt="Queen of Tears">
+                <div class="card-badges"><span class="badge-item blue">Netflix</span></div>
+              </figure>
+            </a>
+            <div class="title-wrapper">
+              <a href="./movie-details.html">
+                <h3 class="card-title">Nữ Hoàng Nước Mắt</h3>
+                <span class="card-subtitle">Queen of Tears</span>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button class="slider-btn" onclick="scrollList('right', 'korea-list')">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+</section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="cta-title">Mỗi tài khoản là một rạp phim cá nhân.</h2>
+            <p class="cta-text">
+              Tạo tài khoản để sử dụng các tiện ích.
+            </p>
+          </div>
+
+          <div class="cta-form">
+            <a href="login.html" class="cta-form-btn">
+              <ion-icon name="log-in-outline"></ion-icon> Đăng nhập
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand-wrapper">
+          <a href="./index.html" class="logo">
+            <img src="./assets/images/Logo.png" alt="Logo MovieHub">
+          </a>
+
+          <ul class="footer-list">
+            <li><a href="./index.html" class="footer-link">Trang chủ</a></li>
+            <li><a href="#" class="footer-link">Về chúng tôi</a></li>
+            <li><a href="#" class="footer-link">Liên hệ</a></li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quicklink-wrapper">
+          <ul class="quicklink-list">
+            <li><a href="#" class="quicklink-link">Câu hỏi thường gặp</a></li>
+            <li><a href="#" class="quicklink-link">Trung tâm trợ giúp</a></li>
+            <li><a href="#" class="quicklink-link">Điều khoản sử dụng</a></li>
+            <li><a href="#" class="quicklink-link">Chính sách bảo mật</a></li>
+          </ul>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link" aria-label="Youtube">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2026 <a href="#">MovieHub</a>. All rights reserved.
+        </p>
+
+        <img src="./assets/images/footer-bottom-img.png" alt="Logo các công ty ngân hàng trực tuyến"
+          class="footer-bottom-img" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- GO TO TOP -->
+  <a href="#top" class="go-top" data-go-top aria-label="Lên đầu trang">
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản lý phim</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Custom -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/movie_management.css">
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-logo">
+        <img src="images/Logo.png" alt="MovieHub Logo" class="sidebar-logo-img">
+      </div>
+      <div class="sidebar-sep"></div>
+      
+      <div class="sidebar-title">MENU</div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="sidebar-link" href="movie_management.html">
+          <i class="bi bi-film"></i>
+          <span>Quản lý phim</span>
+        </a>
+
+        <a class="sidebar-link" href="episode_management.html">
+          <i class="bi bi-play-btn"></i>
+          <span>Quản lý tập phim</span>
+        </a>
+
+        <a class="sidebar-link" href="schedule_management.html">
+          <i class="bi bi-calendar-event"></i>
+          <span>Quản lý lịch chiếu</span>
+        </a>
+
+        <a class="sidebar-link" href="genre_management.html">
+          <i class="bi bi-tags"></i>
+          <span>Quản lý thể loại</span>
+        </a>
+
+        <a class="sidebar-link" href="actor_management.html">
+          <i class="bi bi-people"></i>
+          <span>Quản lý diễn viên</span>
+        </a>
+
+        <a class="sidebar-link" href="director_management.html">
+          <i class="bi bi-person-video3"></i>
+          <span>Quản lý đạo diễn</span>
+        </a>
+
+        <a class="sidebar-link" href="user_management.html">
+          <i class="bi bi-person-badge"></i>
+          <span>Quản lý tài khoản</span>
+        </a>
+
+        <a class="sidebar-link" href="user_statistics.html">
+          <i class="bi bi-graph-up"></i>
+          <span>Thống kê Người dùng </span>
+        </a>
+
+        <a class="sidebar-link" href="engagement_analytics.html">
+          <i class="bi bi-stars"></i>
+          <span>Thống kê Lượt xem &amp; tương tác</span>
+        </a>
+
+        <a class="sidebar-link" href="search_trends.html">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span>Thống kê Xu hướng Tìm kiếm</span>
+        </a>
+
+        <a class="sidebar-link" href="top_genres.html">
+          <i class="bi bi-heart"></i>
+          <span>Thống kê Thể loại được yêu thích nhất</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-sep mt-3"></div>
+
+      <div class="sidebar-user">
+        <div class="user-left">
+          <div class="user-avatar">
+            <i class="bi bi-person"></i>
+          </div>
+          <div class="user-meta">
+            <div class="user-name">Quản lý</div>
+            <div class="user-role">Quản trị viên</div>
+          </div>
+        </div>
+
+        <button class="btn user-logout" title="Đăng xuất">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="container-fluid py-3">
+
+      <!-- Title -->
+      <div class="page-head">
+        <h3 class="mb-2 fw-bold">Quản lý phim</h3>
+        <div class="page-divider"></div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar-strip">
+        <div class="toolbar-inner">
+
+          <div class="btns">
+            <button class="btn btn-soft-primary btn-sm" id="btnAdd">
+              <i class="bi bi-plus-lg me-1"></i> Thêm mới
+            </button>
+            <button class="btn btn-soft-warning btn-sm" id="btnEdit" disabled>
+              <i class="bi bi-pencil-square me-1"></i> Sửa
+            </button>
+            <button class="btn btn-soft-danger btn-sm" id="btnDelete" disabled>
+              <i class="bi bi-trash me-1"></i> Xóa
+            </button>
+            <button class="btn btn-soft-success btn-sm" id="btnRefresh">
+              <i class="bi bi-arrow-clockwise me-1"></i> Làm mới
+            </button>
+          </div>
+
+          <div class="search">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+              <input class="form-control" id="searchInput" placeholder="Tìm kiếm..." />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Table MOVIES -->
+      <div class="table-wrap">
+        <div class="table-responsive table-scroll">
+          <table class="table table-hover align-middle mb-0 movie-table">
+            <thead>
+              <tr>
+                <th style="width:100px;">Mã phim</th>
+                <th style="min-width:260px;">Tên phim</th>
+                <th style="width:120px;">Loại phim</th>
+                <th style="width:120px;">Thể loại</th>
+                <th style="min-width:120px;">Quốc gia</th>
+                <th style="width:120px;">Năm phát hành</th>
+                <th style="width:120px;">Tổng số tập</th>
+                <th style="width:120px;">Điểm đánh giá TB</th>
+                <th style="width:120px;">Số lượt đánh giá</th>
+                <th style="width:120px;">Trạng thái</th>
+                
+              </tr>
+            </thead>
+
+            <tbody id="movieTableBody">
+              <!-- Không fake data: backend/API sẽ đổ vào sau -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="small text-muted mt-2" id="countHint"></div>
+
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!-- actor_create.html -->
+<div class="actor-create">
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <div>
+      <h5 class="mb-0 fw-bold">Thêm diễn viên</h5>
+      <div class="text-muted small">Nhập thông tin theo bảng ACTORS (ERD)</div>
+    </div>
+    <span class="badge text-bg-light border">ACTORS</span>
+  </div>
+
+  <form id="actorCreateForm" autocomplete="off">
+    <div class="row g-3">
+      <!-- FullName -->
+      <div class="col-12">
+        <label class="form-label">Họ và tên <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" name="FullName" placeholder="Ví dụ: Tom Holland" required>
+      </div>
+
+      <!-- Gender -->
+      <div class="col-md-6">
+        <label class="form-label">Giới tính</label>
+        <select class="form-select" name="Gender">
+          <option value="">-- Chọn --</option>
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+          <option value="Khác">Khác</option>
+        </select>
+      </div>
+
+      <!-- BirthDate -->
+      <div class="col-md-6">
+        <label class="form-label">Ngày sinh</label>
+        <input type="date" class="form-control" name="BirthDate">
+      </div>
+
+      <!-- Nationality -->
+      <div class="col-md-6">
+        <label class="form-label">Quốc tịch</label>
+        <input type="text" class="form-control" name="Nationality" placeholder="Ví dụ: USA / UK / Việt Nam">
+      </div>
+
+      <!-- Deleted (ẩn) -->
+      <div class="col-md-6">
+        <label class="form-label d-flex justify-content-between">
+          <span>Trạng thái</span>
+          <span class="text-muted small">(Deleted = 0/1)</span>
+        </label>
+        <select class="form-select" name="Deleted">
+          <option value="0" selected>Hoạt động (0)</option>
+          <option value="1">Đã xóa (1)</option>
+        </select>
+      </div>
+
+      <!-- Biography -->
+      <div class="col-12">
+        <label class="form-label">Tiểu sử</label>
+        <textarea class="form-control" name="Biography" rows="4" placeholder="Mô tả ngắn về diễn viên..."></textarea>
+      </div>
+
+      <!-- ImageURL + preview -->
+      <div class="col-12">
+        <label class="form-label">Ảnh đại diện (ImageURL)</label>
+        <input type="url" class="form-control" id="actorImageUrl" name="ImageURL"
+               placeholder="Dán link ảnh (https://...)">
+        <div class="actor-image-preview mt-2">
+          <div class="preview-box">
+            <img id="actorImagePreview" alt="Preview" />
+            <div class="placeholder text-muted small">
+              Preview ảnh sẽ hiện ở đây
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ActorID (gợi ý) -->
+      <div class="col-12">
+        <div class="alert alert-light border mb-0">
+          <div class="small text-muted">
+            <b>ActorID</b> thường là tự tăng (Bigint) nên bạn có thể không cần nhập ở UI.
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

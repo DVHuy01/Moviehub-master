@@ -1,0 +1,302 @@
+/* =========================================
+   STYLE CHO TRANG ĐĂNG NHẬP & ĐĂNG KÝ
+   ========================================= */
+
+:root {
+  --primary-color: hsl(57, 97%, 45%); /* Màu vàng Citrine */
+  --bg-dark: #141414;
+  --form-bg: rgba(0, 0, 0, 0.75);
+  --input-bg: #333333;
+  --text-white: #ffffff;
+  --text-black: #000000;
+  --text-gray: #b3b3b3;
+  --border-radius: 4px;
+  --transition: 0.3s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Lưu ý đường dẫn ảnh nền khi file css nằm trong thư mục assets/css/ */
+  background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 0;
+}
+
+.brand-logo {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  z-index: 2;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.brand-logo:hover { transform: scale(1.05); }
+.brand-logo img { height: 40px; width: auto; display: block; }
+
+/* --- KHUNG FORM (Có viền vàng) --- */
+.auth-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 450px;
+  background: var(--form-bg);
+  padding: 60px 68px 40px;
+  border-radius: 8px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+  
+  /* Viền vàng 2px */
+  border: 2px solid var(--primary-color); 
+}
+
+.form-header { margin-bottom: 28px; }
+.form-title {
+  color: var(--text-white);
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.form-subtitle {
+  color: var(--text-gray);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-field {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  padding: 16px 20px;
+  color: var(--text-white);
+  font-size: 16px;
+  outline: none;
+  transition: var(--transition);
+}
+
+.input-field::placeholder { color: #8c8c8c; }
+
+.input-field:focus {
+  background: #454545;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8c8c8c;
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+.toggle-password:hover { color: var(--primary-color); }
+
+.btn-submit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--text-white);
+  
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: none;
+  padding: 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.btn-submit ion-icon { font-size: 22px; --ionicon-stroke-width: 40px; }
+
+.btn-submit:hover {
+  background: var(--primary-color); /* Nền vàng đặc */
+  color: #000000; /* Chữ màu đen đậm */
+  
+  /* XÓA BỎ dòng box-shadow gây mờ */
+  /* box-shadow: 0 0 15px var(--primary-color)... -> Đã xóa */
+  
+  /* Giữ lại hiệu ứng nổi nhẹ nếu thích, hoặc bỏ luôn dòng này nếu muốn phẳng lì */
+  transform: translateY(-2px); 
+  
+  /* Đảm bảo viền vẫn là màu vàng */
+  border-color: var(--primary-color);
+}
+
+.form-footer {
+  margin-top: 30px;
+  color: var(--text-gray);
+  font-size: 16px;
+  text-align: center; 
+}
+.form-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.form-footer a:hover { color: var(--primary-color); text-decoration: underline; }
+
+.forgot-pass {
+  display: block;
+  text-align: right;
+  color: var(--text-gray);
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.forgot-pass:hover { color: var(--primary-color); text-decoration: underline; }
+
+/* Responsive Mobile */
+@media (max-width: 740px) {
+  .auth-container {
+    width: 100%; height: 100vh; max-width: none;
+    padding: 40px; justify-content: center; display: flex; flex-direction: column;
+    background: #000;
+    border: none;
+  }
+  .brand-logo { top: 20px; left: 20px; }
+  .brand-logo img { height: 30px; }
+}
+
+/* =========================================
+   STYLE RIÊNG CHO TRANG QUÊN MẬT KHẨU (CẬP NHẬT)
+   ========================================= */
+
+/* Container của trang quên mật khẩu */
+.forgot-container {
+  max-width: 500px;
+  /* CẬP NHẬT: Tăng padding-top lên 80px để nhường chỗ cho nút Back */
+  padding: 80px 68px 40px;
+}
+
+/* Link "Quay lại trang chủ" ở góc trên - CẬP NHẬT VỊ TRÍ */
+.back-home-link {
+  /* Đặt vị trí tuyệt đối so với khung .auth-container */
+  position: absolute;
+  top: 30px;  /* Cách mép trên khung 30px */
+  left: 30px; /* Cách mép trái khung 30px */
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-gray);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500; /* Thêm độ đậm chữ cho rõ */
+  transition: color 0.3s ease;
+  z-index: 10; /* Đảm bảo nằm trên các phần tử khác */
+}
+
+.back-home-link ion-icon {
+  font-size: 20px; /* Tăng kích thước icon một chút */
+}
+
+.back-home-link:hover {
+  color: var(--primary-color); /* Hover màu vàng */
+}
+
+/* Tiêu đề "Quên mật khẩu?" MÀU VÀNG */
+.forgot-title {
+  color: var(--text-white) !important;
+  font-size: 36px;
+  margin-top: -10px; /* Kéo tiêu đề lên một chút cho cân đối */
+}
+
+/* ... Các phần khác giữ nguyên ... */
+
+/* Style cho input có icon bên trong */
+.input-with-icon {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8c8c8c;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+/* Khi focus vào input thì icon cũng sáng màu vàng */
+.input-field:focus + .input-icon,
+.input-field:focus ~ .input-icon {
+  color: var(--primary-color);
+}
+
+/* Link "Quay lại đăng nhập" ở cuối */
+.back-login-link {
+  color: var(--text-gray);
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.back-login-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* =========================================
+   CẬP NHẬT STYLE CHO TRANG HISTORY
+   ========================================= */
+
+.history-container {
+  text-align: center;
+  /* Tăng độ rộng lên để chứa đủ dòng chữ dài */
+  max-width: 550px; 
+  width: 100%; /* Đảm bảo responsive */
+  padding: 80px 40px 60px;
+}
+
+/* Đảm bảo tiêu đề nằm trên 1 hàng */
+.history-container .form-title {
+  white-space: nowrap; /* Không cho xuống dòng */
+  font-size: 26px; /* Chỉnh size chữ vừa phải */
+  margin-bottom: 15px;
+}
+
+/* Căn chỉnh lại phụ đề cho đẹp */
+.history-container .form-subtitle {
+  max-width: 400px; /* Giới hạn chiều rộng text con để nó gọn */
+  margin: 0 auto; /* Căn giữa text con */
+  line-height: 1.6;
+}
+
+/* Nút bấm của trang lịch sử */
+.history-btn {
+  margin-top: 30px;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none !important;
+}

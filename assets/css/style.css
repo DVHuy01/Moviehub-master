@@ -1,0 +1,432 @@
+/*-----------------------------------*\
+ * #style.css (FULL VERSION - ALL SECTIONS)
+ * Cập nhật: Thêm Anime, Phim Trung, Mỹ, Hàn vào giao diện Carousel
+ * Tất cả dùng chung background footer-bg.jpg
+\*-----------------------------------*/
+
+:root {
+  --rich-black-fogra-29: hsl(225, 25%, 9%);
+  --rich-black-fogra-39: hsl(170, 21%, 5%);
+  --raisin-black: hsl(228, 13%, 15%);
+  --eerie-black: hsl(207, 19%, 11%);
+  --light-gray: hsl(0, 3%, 80%);
+  --gunmetal-1: hsl(229, 15%, 21%);
+  --gunmetal-2: hsl(216, 22%, 18%);
+  --gainsboro: hsl(0, 7%, 88%);
+  --citrine: hsl(57, 97%, 45%);
+  --xiketic: hsl(253, 21%, 13%);
+  --gray-x: hsl(0, 0%, 74%);
+  --white: hsl(0, 100%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --jet: hsl(0, 0%, 20%);
+
+  --ff-poppins: 'Poppins', sans-serif;
+
+  --fs-1: 60px;
+  --fs-2: 36px;
+  --fs-3: 30px;
+  --fs-4: 26px;
+  --fs-5: 20px;
+  --fs-6: 18px;
+  --fs-7: 16px;
+  --fs-8: 15px;
+  --fs-9: 14px;
+  --fs-10: 13px;
+  --fs-11: 12px;
+  --fs-12: 11px;
+
+  --fw-500: 500;
+  --fw-700: 700;
+
+  --transition-1: 0.15s ease;
+  --transition-2: 0.25s ease-in;
+
+  --section-padding: 100px;
+  --primary-yellow: #e4d804;
+}
+
+/* RESET */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+li { list-style: none; }
+a { text-decoration: none; }
+a, img { display: block; }
+span, ion-icon { display: inline-block; }
+input { font: inherit; width: 100%; border: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; }
+html { font-family: var(--ff-poppins); scroll-behavior: smooth; }
+
+/* BODY */
+body { background: var(--eerie-black); padding-top: 125px; }
+
+/* CONTAINER */
+.container { padding-inline: 15px; max-width: 1320px; margin-inline: auto; }
+
+/* TITLES */
+.h1, .h2, .h3 { color: var(--white); line-height: 1.2; }
+.h1 { font-size: var(--fs-1); }
+.h2 { font-size: var(--fs-2); }
+.h3 { font-size: var(--fs-6); }
+
+.section-subtitle {
+  color: var(--citrine); font-size: var(--fs-11);
+  font-weight: var(--fw-500); text-transform: uppercase;
+  letter-spacing: 1px; margin-bottom: 10px; text-align: center;
+}
+.section-title { text-align: center; }
+
+/* BUTTONS */
+.btn {
+  color: var(--white); font-size: var(--fs-11); font-weight: var(--fw-700);
+  letter-spacing: 2px; display: flex; align-items: center; gap: 10px;
+  padding: 16px 30px; border: 2px solid var(--citrine);
+  border-radius: 50px; transition: var(--transition-1);
+}
+.btn > ion-icon { font-size: 18px; }
+.btn-primary { background: var(--rich-black-fogra-29); }
+.btn-primary:is(:hover, :focus) { background: var(--citrine); color: var(--xiketic); }
+
+
+/* =========================================================
+   CAROUSEL STYLE (ÁP DỤNG CHO TẤT CẢ CÁC MỤC)
+   Bao gồm: Upcoming, Top Rated, TV Series, Single Movie,
+   Anime, China, US, Korea
+   ========================================================= */
+
+/* 1. Nền & Padding (Giống Footer) */
+.upcoming,
+.top-rated,
+.tv-series,
+.single-movie,
+.anime-series,
+.china-movies,
+.us-movies,
+.korea-movies {
+  background: url("../images/footer-bg.jpg") no-repeat;
+  background-size: cover; 
+  background-position: center;
+  background-color: var(--rich-black-fogra-29); /* Màu dự phòng */
+  padding-block: 40px;
+}
+
+/* 2. Header Section (Flex để đẩy nút Xem tất cả sang phải) */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .section-title { margin-bottom: 0; text-align: left; }
+
+/* 3. Style nút Xem tất cả */
+.view-all {
+  font-size: 13px; color: #aaa; font-weight: 500;
+  display: flex; align-items: center; gap: 5px; transition: 0.2s;
+}
+.view-all:hover { color: var(--citrine); }
+
+/* 4. Layout danh sách trượt ngang (Carousel) */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movies-list {
+  display: flex;
+  grid-template-columns: unset;
+  gap: 15px;
+  overflow-x: auto; 
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 15px;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movies-list::-webkit-scrollbar { display: none; }
+
+/* 5. Kích thước Item phim */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movies-list > li {
+  min-width: 180px;
+  width: 180px;
+  scroll-snap-align: start;
+}
+
+/* 6. Card Style */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movie-card { 
+  height: auto; 
+  background: transparent; 
+  cursor: pointer;
+}
+
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .card-banner {
+  border-radius: 8px; overflow: hidden; position: relative;
+  aspect-ratio: 2 / 3; margin-bottom: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .card-banner img {
+  transition: transform 0.3s ease;
+  width: 100%; height: 100%; object-fit: cover;
+}
+/* Hiệu ứng Zoom ảnh khi hover */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movie-card:hover .card-banner img { transform: scale(1.05); }
+
+/* 7. Badges (Nhãn P.Đ, T.M...) đè lên ảnh */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .card-badges {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%;
+  padding: 30px 8px 8px;
+  display: flex; gap: 5px; align-items: flex-end;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+}
+
+.badge-item {
+  font-size: 10px; font-weight: 700; padding: 3px 6px;
+  border-radius: 3px; color: #fff; line-height: 1; text-transform: uppercase;
+}
+/* Màu sắc badge */
+.badge-item.gray { background-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(4px); }
+.badge-item.green { background-color: #00c030; }
+.badge-item.blue { background-color: #3b82f6; }
+.badge-item.red { background-color: #e50914; }
+
+/* 8. Text Style (Tên Việt to, Tên gốc nhỏ) */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .title-wrapper { display: block; margin-bottom: 0; gap: 0; }
+
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .card-title {
+  font-size: 15px; font-weight: 600; margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--white);
+  transition: color 0.3s ease;
+}
+
+/* Hover vào thẻ phim -> Tên đổi màu vàng */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movie-card:hover .card-title,
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movie-card:focus-within .card-title {
+  color: var(--primary-yellow);
+}
+
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .card-subtitle {
+  display: block; font-size: 12px; color: #888;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 400;
+}
+
+/* Ẩn style cũ không dùng */
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .card-meta,
+:is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .title-wrapper time { display: none !important; }
+
+/* 9. Nút Next (Mũi tên tròn bên phải) */
+.movie-list-wrapper { position: relative; }
+
+.slider-btn {
+  position: absolute; top: 35%; right: -25px;
+  transform: translateY(-50%);
+  width: 45px; height: 45px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+  color: #fff; font-size: 24px;
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer; z-index: 10;
+  transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.1);
+}
+.slider-btn:hover {
+  background: var(--white); color: #000; transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movies-list > li { min-width: 150px; width: 150px; }
+  .slider-btn { display: none; } /* Mobile dùng vuốt tay */
+  :is(.upcoming, .top-rated, .tv-series, .single-movie, .anime-series, .china-movies, .us-movies, .korea-movies) .movies-list { padding-right: 20px; }
+}
+
+
+/* =========================================
+   GRID STYLE FALLBACK
+   ========================================= */
+.movies-list.grid {
+  display: grid; gap: 22px; grid-template-columns: repeat(7, 1fr);
+}
+.movies-list.grid .movie-card { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.movies-list.grid .card-banner {
+  position: relative; background: var(--gunmetal-1); aspect-ratio: 2 / 3;
+  border-radius: 6px; overflow: hidden; margin-bottom: 12px; transition: var(--transition-1);
+}
+
+/* HERO SECTION */
+.hero {
+  background: url("../images/hero-bg.jpg") no-repeat;
+  background-size: cover; background-position: right;
+  min-height: 750px; height: 100vh; max-height: 1000px;
+  display: flex; justify-content: flex-start; align-items: center;
+  padding-block: var(--section-padding);
+}
+.hero .container { width: 100%; }
+.hero-content { margin-top: 100px; max-width: 600px; }
+.hero-subtitle { color: var(--citrine); font-size: var(--fs-4); font-weight: var(--fw-700); margin-bottom: 10px; }
+.hero-title { margin-bottom: 30px; }
+.hero-title > strong { color: var(--citrine); }
+
+/* CTA SECTION */
+.cta {
+  background: url("../images/cta-bg.jpg") no-repeat;
+  background-size: cover; background-position: center;
+  padding-block: 50px; text-align: left;
+}
+.cta .container{ display: flex; justify-content: space-between; align-items: center; max-width: 1150px; }
+.cta .title-wrapper{ margin-bottom: 0; width: 100%; }
+.cta-title { color: var(--eerie-black); font-size: var(--fs-3); line-height: 1.2; margin-bottom: 5px; }
+.cta-text { color: var(--eerie-black); font-size: var(--fs-9); font-weight: var(--fw-500); line-height: 1.8; }
+.cta-form{ width: 100%; display: flex; justify-content: flex-end; }
+.cta-form-btn {
+  background: var(--eerie-black); color: var(--citrine);
+  font-size: var(--fs-9); font-weight: var(--fw-700); letter-spacing: 1px;
+  border: 2px solid var(--eerie-black); padding: 15px 34px; border-radius: 4px;
+  transition: var(--transition-1); display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; line-height: 1;
+}
+.cta-form-btn:is(:hover, :focus) { background: var(--citrine); color: var(--eerie-black); }
+.cta-form-btn ion-icon { font-size: 18px; --ionicon-stroke-width: 50px; }
+
+/* FOOTER SECTION */
+.footer-top {
+  background: url("../images/footer-bg.jpg") no-repeat;
+  background-size: cover; background-position: center; padding-block: 80px 50px;
+}
+.footer-brand-wrapper .logo { width: max-content; margin: 0; }
+.footer-brand-wrapper .logo img { width: 120px; height: auto; display: block; }
+.footer-list, .quicklink-list, .social-list { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 5px; }
+.footer-brand-wrapper, .quicklink-wrapper, .footer-bottom .container { display: flex; justify-content: space-between; align-items: center; }
+.footer-link {
+  color: var(--light-gray); font-size: var(--fs-9); font-weight: var(--fw-700);
+  padding: 5px 15px; transition: var(--transition-1);
+}
+:is(.footer-link, .quicklink-link, .social-link):is(:hover, :focus) { color: var(--citrine); }
+.divider {
+  height: 4px; margin-block: 40px;
+  border-top: 1px solid var(--rich-black-fogra-29); border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+.quicklink-list { margin-bottom: 0; }
+.quicklink-link {
+  color: var(--gray-x); font-size: var(--fs-10); font-weight: var(--fw-500);
+  padding: 2px 10px; transition: var(--transition-1);
+}
+.social-list { column-gap: 10px; }
+.social-link {
+  background: var(--rich-black-fogra-29); color: var(--gray-x); font-size: 14px;
+  width: 35px; height: 35px; display: grid; place-items: center;
+  border-radius: 50%; box-shadow: inset 0 4px 8px hsla(0, 0%, 0%, 0.25);
+  transition: var(--transition-1);
+}
+.social-link:hover { background: var(--primary-yellow); color: var(--eerie-black); box-shadow: none; }
+
+/* FIX FOOTER BOTTOM */
+.footer-bottom { padding-block: 25px; }
+.footer-bottom .container {
+  display: flex !important; flex-direction: row !important;
+  flex-wrap: nowrap !important; justify-content: space-between !important;
+  width: 100% !important;
+}
+.copyright {
+  color: var(--gray-x); font-size: var(--fs-10); font-weight: var(--fw-500);
+  line-height: 1.7; margin-bottom: 0; white-space: nowrap !important;
+}
+.copyright > a { display: inline-block; color: var(--citrine); }
+.footer-bottom-img { max-width: 250px !important; height: auto; display: block !important; margin: 0 !important; }
+@media (max-width: 768px) {
+  .footer-bottom .container { flex-direction: column !important; flex-wrap: wrap !important; gap: 15px; }
+  .copyright { white-space: normal !important; }
+}
+
+/* GO TO TOP */
+.go-top {
+  position: fixed; bottom: 20px; right: 20px;
+  background: var(--citrine); color: var(--eerie-black);
+  width: 50px; height: 50px; display: grid; place-items: center;
+  border-radius: 50%; box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  opacity: 0; visibility: hidden; transition: var(--transition-2); z-index: 2;
+}
+.go-top.active { opacity: 1; visibility: visible; }
+
+/* =========================================
+   HEADER INTERACTIVE
+   ========================================= */
+.container-header { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
+.header.hh3d {
+  background-color: #0f0f0f; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: all 0.3s ease;
+}
+.hh3d-top { padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.hh3d-top-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.hh3d-logo img { height: 40px; width: auto; display: block; }
+.hh3d-search { flex: 1; max-width: 600px; position: relative; margin: 0 20px; }
+.hh3d-search input {
+  width: 100%; background: #1a1a1a; border: 1px solid #333;
+  border-radius: 50px; padding: 10px 20px 10px 45px;
+  color: #fff; font-size: 14px; outline: none; transition: all 0.3s;
+}
+.hh3d-search input:focus { border-color: var(--primary-yellow); }
+.search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #888; font-size: 18px; }
+.hh3d-actions { display: flex; align-items: center; gap: 15px; }
+.btn-header {
+  display: flex; align-items: center; gap: 8px; padding: 8px 20px;
+  border-radius: 50px; font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: all 0.3s; border: 1px solid var(--primary-yellow); color: #fff;
+}
+.btn-header ion-icon { font-size: 18px; }
+.btn-header:hover { background: var(--primary-yellow); color: #000; }
+.hh3d-nav { background: #0a0a0a; }
+.hh3d-menu { display: flex; justify-content: center; list-style: none; gap: 0; padding: 0; margin: 0; }
+.hh3d-link {
+  position: relative; display: flex; align-items: center; gap: 8px;
+  padding: 15px 20px; color: #aaa; font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: color 0.3s; cursor: pointer;
+}
+.hh3d-link ion-icon { font-size: 16px; }
+.hh3d-link:hover, .hh3d-link.is-active { color: #fff; background: rgba(255, 255, 255, 0.05); }
+.hh3d-link.is-active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 3px; background: var(--primary-yellow);
+}
+.hh3d-caret { font-size: 12px; margin-left: 2px; }
+.hh3d-dropdown { position: relative; }
+.hh3d-dropdown-menu {
+  position: absolute; top: 100%; left: 0; background: #1a1a1a;
+  border: 1px solid #333; border-radius: 8px; min-width: 180px;
+  display: none; opacity: 0; visibility: hidden;
+  flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 200; padding: 5px 0; transition: all 0.2s ease;
+}
+.hh3d-dropdown.active .hh3d-dropdown-menu { display: flex; opacity: 1; visibility: visible; }
+.hh3d-dropdown-menu a {
+  padding: 10px 20px; color: #ccc; text-decoration: none; font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s;
+}
+.hh3d-dropdown-menu a:hover { background: var(--primary-yellow); color: #000; }
+
+/* Grid Menus */
+.hh3d-dropdown-menu.genre-grid, .hh3d-dropdown-menu.country-grid {
+  width: 600px; display: none; grid-template-columns: repeat(3, 1fr);
+  gap: 15px 10px; max-height: 400px; overflow-y: auto; padding: 20px;
+  background-color: #111; border: 1px solid #333;
+}
+.hh3d-dropdown-menu.genre-grid { left: -150px; }
+.hh3d-dropdown-menu.country-grid { left: -200px; }
+.hh3d-dropdown.active .hh3d-dropdown-menu.genre-grid,
+.hh3d-dropdown.active .hh3d-dropdown-menu.country-grid { display: grid; }
+
+.hh3d-dropdown-menu.year-grid {
+  width: 550px; display: none; grid-template-columns: repeat(3, 1fr);
+  gap: 15px 10px; max-height: 400px; overflow-y: auto; padding: 20px;
+  background-color: #111; border: 1px solid #333; left: -150px;
+}
+.hh3d-dropdown.active .hh3d-dropdown-menu.year-grid { display: grid; }
+.hh3d-dropdown-menu.year-grid a { text-align: center; padding: 10px 5px; }
+
+/* Scrollbars */
+.hh3d-dropdown-menu::-webkit-scrollbar { width: 6px; }
+.hh3d-dropdown-menu::-webkit-scrollbar-track { background: #222; }
+.hh3d-dropdown-menu::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+.hh3d-dropdown-menu::-webkit-scrollbar-thumb:hover { background: var(--primary-yellow); }
+
+/* Responsive Header */
+@media (max-width: 900px) {
+  .hh3d-search { display: none; }
+  .hh3d-menu { overflow-x: auto; justify-content: flex-start; }
+  .hh3d-dropdown-menu.genre-grid, .hh3d-dropdown-menu.country-grid, .hh3d-dropdown-menu.year-grid {
+    width: 100%; grid-template-columns: 1fr; left: 0; max-height: 300px;
+  }
+  .hh3d-dropdown-menu.year-grid a { text-align: left; padding: 10px 20px; }
+}

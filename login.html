@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - MovieHub</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <link rel="stylesheet" href="./assets/css/auth.css">
+</head>
+<body>
+
+  <a href="./index.html" class="brand-logo">
+    <img src="./assets/images/Logo.png" alt="MovieHub Logo">
+  </a>
+
+  <div class="auth-container">
+    <form action="" method="POST">
+      <div class="form-header">
+        <h2 class="form-title">Chào mừng trở lại</h2>
+        <p class="form-subtitle">Cùng thưởng thức những bộ phim tuyệt vời nhất.</p>
+      </div>
+
+      <div class="input-group">
+        <input type="text" class="input-field" placeholder="Email hoặc Tên đăng nhập" required>
+      </div>
+
+      <div class="input-group">
+        <input type="password" class="input-field" id="loginPass" placeholder="Mật khẩu" required>
+        <ion-icon name="eye-outline" class="toggle-password" onclick="togglePass('loginPass', this)"></ion-icon>
+      </div>
+
+
+      <a href="forgot-password.html" class="forgot-pass">Quên mật khẩu?</a>
+
+      <button type="submit" class="btn-submit">
+        <ion-icon name="log-in-outline"></ion-icon>
+        <span>Đăng nhập</span>
+      </button>
+
+      <div class="form-footer">
+        Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function togglePass(inputId, icon) {
+      const input = document.getElementById(inputId);
+      if (input.type === "password") {
+        input.type = "text";
+        icon.setAttribute('name', 'eye-off-outline');
+      } else {
+        input.type = "password";
+        icon.setAttribute('name', 'eye-outline');
+      }
+    }
+  </script>
+</body>
+</html>
