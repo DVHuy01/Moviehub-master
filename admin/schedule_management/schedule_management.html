@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quản lý tài khoản</title>
+  <title>Quản lý lịch chiếu</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/user_management.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="./schedule_management.css">
 </head>
 <body>
 
@@ -18,26 +18,26 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
       <div class="sidebar-logo">
-        <img src="images/Logo.png" alt="MovieHub Logo" class="sidebar-logo-img">
+        <img src="../images/Logo.png" alt="MovieHub Logo" class="sidebar-logo-img">
       </div>
       <div class="sidebar-sep"></div>
       <div class="sidebar-title">MENU</div>
 
       <nav class="sidebar-nav">
-        <a class="sidebar-link" href="index.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
-        <a class="sidebar-link" href="movie_management.html"><i class="bi bi-film"></i><span>Quản lý phim</span></a>
-        <a class="sidebar-link" href="episode_management.html"><i class="bi bi-play-btn"></i><span>Quản lý tập phim</span></a>
-        <a class="sidebar-link" href="schedule_management.html"><i class="bi bi-calendar-event"></i><span>Quản lý lịch chiếu</span></a>
-        <a class="sidebar-link" href="genre_management.html"><i class="bi bi-tags"></i><span>Quản lý thể loại</span></a>
-        <a class="sidebar-link" href="actor_management.html"><i class="bi bi-people"></i><span>Quản lý diễn viên</span></a>
-        <a class="sidebar-link" href="director_management.html"><i class="bi bi-person-video3"></i><span>Quản lý đạo diễn</span></a>
-        <a class="sidebar-link" href="user_management.html"><i class="bi bi-person-badge"></i><span>Quản lý tài khoản</span></a>
-        <a class="sidebar-link" href="user_statistics.html">
+        <a class="sidebar-link" href="../index.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
+        <a class="sidebar-link" href="../movie_management/movie_management.html"><i class="bi bi-film"></i><span>Quản lý phim</span></a>
+        <a class="sidebar-link" href="../episode_management/episode_management.html"><i class="bi bi-play-btn"></i><span>Quản lý tập phim</span></a>
+        <a class="sidebar-link" href="../schedule_management/schedule_management.html"><i class="bi bi-calendar-event"></i><span>Quản lý lịch chiếu</span></a>
+        <a class="sidebar-link" href="../genre_management/genre_management.html"><i class="bi bi-tags"></i><span>Quản lý thể loại</span></a>
+        <a class="sidebar-link" href="../actor_management/actor_management.html"><i class="bi bi-people"></i><span>Quản lý diễn viên</span></a>
+        <a class="sidebar-link" href="../director_management/director_management.html"><i class="bi bi-person-video3"></i><span>Quản lý đạo diễn</span></a>
+        <a class="sidebar-link" href="../user_management/user_management.html"><i class="bi bi-person-badge"></i><span>Quản lý tài khoản</span></a>
+        <a class="sidebar-link" href="../user_statistics/user_statistics.html">
           <i class="bi bi-graph-up"></i>
           <span>Thống kê Người dùng </span></a>
-        <a class="sidebar-link" href="engagement_analytics.html"><i class="bi bi-stars"></i><span>Thống kê Lượt xem &amp; tương tác</span></a>
-        <a class="sidebar-link" href="search_trends.html"><i class="bi bi-graph-up-arrow"></i><span>Thống kê Xu hướng Tìm kiếm</span></a>
-        <a class="sidebar-link" href="top_genres.html"><i class="bi bi-heart"></i><span>Thống kê Thể loại được yêu thích nhất</span></a>
+        <a class="sidebar-link" href="../engagement_analytics/engagement_analytics.html"><i class="bi bi-stars"></i><span>Thống kê Lượt xem &amp; tương tác</span></a>
+        <a class="sidebar-link" href="../search_trends/search_trends.html"><i class="bi bi-graph-up-arrow"></i><span>Thống kê Xu hướng Tìm kiếm</span></a>
+        <a class="sidebar-link" href="../top_genres/top_genres.html"><i class="bi bi-heart"></i><span>Thống kê Thể loại được yêu thích nhất</span></a>
       </nav>
 
       <div class="sidebar-sep mt-3"></div>
@@ -60,7 +60,7 @@
     <div class="container-fluid py-3">
 
       <div class="page-head">
-        <h3 class="mb-2 fw-bold">Quản lý tài khoản</h3>
+        <h3 class="mb-2 fw-bold">Quản lý lịch chiếu</h3>
         <div class="page-divider"></div>
       </div>
 
@@ -87,15 +87,14 @@
           <table class="table table-hover align-middle mb-0 data-table">
             <thead>
               <tr>
-                <th style="width:120px;">Mã tài khoản</th>
-                <th style="min-width:220px;">Tên đăng nhập</th>
-                <th style="min-width:220px;">Tên hiển thị</th>
-                <th style="min-width:260px;">Email/Gmail</th>
-                <th style="width:140px;">Vai trò</th>
-                <th style="width:220px;">Ngày tạo</th>
+                <th style="width:100px;">Mã lịch chiếu</th>
+                <th style="width:220px;">Tên phim</th>
+                <th style="width:160px;">Ngày chiếu</th>
+                <th style="width:140px;">Giờ chiếu</th>
+                <th style="width:140px;">Ghi chú</th>
               </tr>
             </thead>
-            <tbody id="userTableBody"></tbody>
+            <tbody id="scheduleTableBody"></tbody>
           </table>
         </div>
       </div>
@@ -106,6 +105,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/scripts.js"></script>
+<script src="./schedule.js"></script>
 </body>
 </html>
